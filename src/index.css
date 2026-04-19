@@ -1,0 +1,104 @@
+:root {
+    --font1: 'Urbanist', sans-serif;
+    --font2: 'PokemonGB', sans-serif;
+    --bg-main: #2B2B2B;
+    --bg-card: #444444;
+    --btn-card: #D32F2F;
+    --hover: #B71C1C;
+    --read-save: #A4C639;
+    --text-main: #FFFFFF;
+}
+
+body{
+    background-color: var(--bg-main);
+}
+
+h1{
+    font-size: 50px;
+    font-family: var(--font1);
+    color: var(--text-main);
+}
+
+.main_container{
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+#saveImportLabel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80%;
+    text-align: center;
+    background-color: var(--btn-card);
+    color: whitesmoke;
+    font-family: var(--font2);
+    height: 100px;
+    width: 200px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px 0px var(--hover);
+    transition: 0.5s;
+}
+
+#saveImportLabel:hover{
+    box-shadow: 0px 0px 30px 0px var(--hover);
+    cursor: pointer;
+}
+
+#saveImportLabel:active{
+    transform: scale(0.90);
+}
+
+#saveImportText{
+    height: 300px;
+    width: 150px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.trainerCardTemplate{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 0px 10px 0px var(--hover);
+    height: 368px;
+    width: 500px;
+    
+}
+
+.trainerCardTemplate img{
+    position: fixed;
+    z-index: -1;
+    height: 368px;
+    width: 500px;
+}
+
+#trainer_name{
+    height: 16px;
+    width: 184px;
+    font-family: var(--font2);
+    color: var(--bg-main);
+    line-height: 95px;
+    text-indent: 23px;
+}
+
+#trainer_money{
+    height: 16px;
+    width: 184px;
+    font-family: var(--font2);
+    color: var(--bg-main);
+    line-height: 128px;
+    text-indent: 58px;
+}
+
+#trainer_time{
+    height: 16px;
+    width: 184px;
+    font-family: var(--font2);
+    color: var(--bg-main);
+    line-height: 162px;
+    text-indent: 20px;
+}
