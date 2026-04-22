@@ -16,8 +16,8 @@ This project focuses on low-level data parsing and reverse engineering concepts 
 
 - Upload and read `.sav` files directly in the browser
 - Decode Trainer and Rival names
-- Display Gym Badges (bit flags) (only in console for now)
-- Calculate Pokédex progress (seen / caught) (in progress)
+- Display Gym Badges (bit flags) !NEW ✨
+- Calculate Pokédex progress !NEW ✨ (More deployments in future)
 - Decode play time (multi-byte values)
 - Decode money using BCD format
 
@@ -37,13 +37,13 @@ Core techniques used:
 
 ---
 
-## 📊 Example Output
-Trainer: RED
-Rival: BLUE
-Badges: 5/8
-Play Time: 123:45:12
-Money: ₽123456
+## 📊 Example Console Output
 
+Trainer Name: RED
+Rival Name: BLUE
+Badges Total: 5/8
+Money: ₽123456
+Play Time: 123:45:12
 
 ---
 
@@ -73,3 +73,9 @@ Pokémon is a property of Nintendo, Game Freak, and The Pokémon Company.
 ## 📖 Data Used For Developing
 
 - https://bulbapedia.bulbagarden.net/wiki/Save_data_structure_(Generation_I)#bank1_main_playtm
+
+---
+
+## 🎮 You can see in action here:
+
+- https://catchallproject.github.io/catch/src/index.html

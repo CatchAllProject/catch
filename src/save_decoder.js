@@ -24,6 +24,7 @@ save.addEventListener("change", async(e) =>{
 
 //Funcao que carrega o save
 async function loadSave(event){
+    localStorage.clear();
     const saveFile = event.target.files[0];
 
     if(!saveFile){
@@ -41,25 +42,74 @@ async function loadSave(event){
     const gameTime = readSaveTime(reader, 0x2CED);
     howManyBadges(reader, 0x2602, 8);
     const badgesNum = badgesNames[9];
+    const seenPoke = countBit(reader, 0x25A3, 151);
+    const caughtPoke = countBit(reader, 0x25B6, 151);
 
     console.log(`Nome do Treinador: ${playerName}`);
     console.log(`Nome do Rival: ${rivalName}`);
     console.log(`Total de Insígnias: ${badgesNum}`);
     console.log(`Dinheiro: ${playerMoney}`);
     console.log(`Tempo: ${gameTime}`);
+    console.log(`Pokemons Vistos: ${seenPoke}`);
+    console.log(`Pokemons Capturados: ${caughtPoke}`);
 
     for(let i = 0; i < badgesNum; i++){
         console.log(`${i + 1}º Insíginia: ${badgesNames[i]}`);
     }
 
+    for(let i = 0; i < 8; i++){
+        let block = document.getElementById(`block_${i + 1}`);
+        block.style.setProperty('--hover','#B71C1C')
+        removeAnimations();
+    }
+
+    for(let i = 0; i < badgesNum; i++){
+        if(badgesNum == 8){
+            completeBadgesAnimation();
+        }
+        let block = document.getElementById(`block_${i + 1}`);
+        block.style.setProperty('--hover','#ffc60a');
+    }
+
     const trainerName = document.getElementById("trainer_name");
     const trainerMoney = document.getElementById("trainer_money");
     const trainerTime = document.getElementById("trainer_time");
+    const trainerSeenPoke = document.getElementById("seen");
+    const trainerOwnPoke = document.getElementById("own");
+    
+    /*trainerSeenPoke.toString();
+    trainerOwnPoke.toString();*/
 
     trainerName.innerHTML = `${playerName}`;
     trainerMoney.innerHTML = `${playerMoney}`;
     trainerTime.innerHTML = `${gameTime}`;
+    trainerSeenPoke.innerHTML = `${seenPoke}`;
+    trainerOwnPoke.innerHTML = `${caughtPoke}`;
 
+    //block.style.opacity = "0%";
+
+}
+
+//
+
+function completeBadgesAnimation() {
+        let card = document.getElementById("trainerCard");
+        let button = document.getElementById("saveImportLabel");
+        let dex_template = document.querySelector(".pokedex_template");
+
+        button.style.setProperty('--hover', '#ffc60a');
+        card.classList.add("show-shadow");
+        dex_template.classList.add("show-shadow");
+}
+
+function removeAnimations(){
+        let card = document.getElementById("trainerCard");
+        let button = document.getElementById("saveImportLabel");
+        let dex_template = document.querySelector(".pokedex_template");
+
+        button.style.setProperty('--hover', '#B71C1C');
+        card.classList.remove("show-shadow");
+        dex_template.classList.remove("show-shadow");
 }
 
 //Funcao que mapeia os caracteres dentro do save
@@ -166,12 +216,26 @@ function readSaveTime(reader, offset){
 
     const hours = (hoursHigh << 8) | hoursLow;
 
-    if (hours <= 9){
-        let time = `0${hours}:${minutes}:${seconds}`;
-        return time;
-    } else{
-        let time = `${hours}:${minutes}:${seconds}`;
-        return time;
-    }
+    const hour = String(hours).padStart(2, '0');
+    const minute = String(minutes).padStart(2, '0');
+    const second = String(seconds).padStart(2, '0');
+
+    let time = `${hour}:${minute}:${second}`;
+    return time;
+}
+
+
+function countBit(reader, offset, length){
+    let count = 0;
     
+    for(let i = 0; i < length; i++){
+        const byte = reader.readByte(offset + Math.floor(i / 8));
+        const bit =  i % 8;
+
+        if((byte & (1 << bit)) !== 0){
+            count++
+        }
+    }
+
+    return count;
 }

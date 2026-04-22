@@ -13,12 +13,34 @@
             <h1>Leitor de Saves</h1>
             <input type="file" id="saveInput" hidden>
             <label for="saveInput" id="saveImportLabel">Carregar Save</label>
-            <div class="save_info">
-                <div class="trainerCardTemplate">
+            <div class="info_container">
+                <div id="trainerCard" class="trainerCardTemplate">
                     <img src="images/trainer_card_template.png" alt="">
-                    <label id="trainer_name">trainerName</label>
-                    <label id="trainer_money">0000</label>
-                    <label id="trainer_time">00:00:00</label>
+                    <div id="save_data">
+                        <label id="trainer_name">trainerName</label>
+                        <label id="trainer_money">0000</label>
+                        <label id="trainer_time">00:00:00</label>
+                    </div>
+                    <div id="badge_block">
+                        <li id="block_1" class="block"></li>
+                        <li id="block_2" class="block"></li>
+                        <li id="block_3" class="block"></li>
+                        <li id="block_4" class="block"></li>
+                        <li id="block_5" class="block"></li>
+                        <li id="block_6" class="block"></li>
+                        <li id="block_7" class="block"></li>
+                        <li id="block_8" class="block"></li>
+                    </div>
+                </div>
+                <div class="pokedex_template">
+                    <img src="images/pokedex_template.webp" alt="">
+                    <div id="dex_data">
+                        <div id="seened">
+                            <label id="seen">0</label>
+                            <label id="own">0</label>
+                        </div>
+                        <div id="alert">Em Breve!</div>
+                    </div>
                 </div>
             </div>
     </div>

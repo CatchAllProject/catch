@@ -7,20 +7,22 @@
     --hover: #B71C1C;
     --read-save: #A4C639;
     --text-main: #FFFFFF;
+    --victory: #ffc60a;
 }
 
 body{
     background-color: var(--bg-main);
+    
 }
 
 h1{
     font-size: 50px;
     font-family: var(--font1);
     color: var(--text-main);
+    margin-top: 20px;
 }
 
 .main_container{
-    padding: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +35,7 @@ h1{
     align-items: center;
     font-size: 80%;
     text-align: center;
-    background-color: var(--btn-card);
+    background-color: var(--hover);
     color: whitesmoke;
     font-family: var(--font2);
     height: 100px;
@@ -60,38 +62,54 @@ h1{
 }
 
 .trainerCardTemplate{
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0px 0px 10px 0px var(--hover);
+    box-shadow: 0px 0px 12px 0px var(--hover);
+    transition: box-shadow 1s ease;
     height: 368px;
     width: 500px;
-    
+    gap: 143px;
+}
+
+.trainerCardTemplate.show-shadow {
+    box-shadow: 0px 0px 10px 0px var(--victory);
 }
 
 .trainerCardTemplate img{
-    position: fixed;
+    position: absolute;
     z-index: -1;
     height: 368px;
     width: 500px;
 }
 
+#save_data{
+    position: relative;
+    top: 37px;
+    left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
 #trainer_name{
+    position: relative;
     height: 16px;
     width: 184px;
+    top: 2px;
+    left: 0px;
     font-family: var(--font2);
     color: var(--bg-main);
-    line-height: 95px;
-    text-indent: 23px;
 }
 
 #trainer_money{
+    position: relative;
     height: 16px;
     width: 184px;
     font-family: var(--font2);
     color: var(--bg-main);
-    line-height: 128px;
-    text-indent: 58px;
+    left: 42px;
 }
 
 #trainer_time{
@@ -99,6 +117,74 @@ h1{
     width: 184px;
     font-family: var(--font2);
     color: var(--bg-main);
-    line-height: 162px;
-    text-indent: 20px;
+}
+
+#badge_block{
+    width: 304px;
+    height: 120px;
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 12px;
+}
+
+#badge_block li{
+    position: relative;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    height: 54px;
+    width: 68px;
+    background-color: var(--hover);
+    opacity: 40%;
+    color: var(--btn-card);
+    left: -5px;
+    top: 4px;
+}
+
+.info_container{
+    display: flex;
+    gap: 30px;
+}
+
+.pokedex_template{
+    font-family: var(--font2);
+    height: 244px;
+    width: 271px;
+    box-shadow: 0px 0px 12px 0px var(--hover);
+    transition: box-shadow 1s ease;
+}
+
+.pokedex_template.show-shadow {
+    box-shadow: 0px 0px 10px 0px var(--victory);
+}
+
+.pokedex_template img{
+    z-index: -1;
+    position: absolute;
+    height: 244px;
+    width: 271px;
+    background-color: var(--read-save);
+}
+
+#seened {
+    position: relative;
+    display: flex;
+    height: 16px;
+    width: 50px;
+    flex-direction: column;
+    text-align: end;
+    gap: 28px;
+    top: 50px;
+    left: 206px;
+    font-size: 11px;
+    color: var(--bg-main);
+}
+
+#alert {
+    text-align: center;
+    text-indent: -58px;
+    line-height: 202px;
+    color: var(--bg-main);
 }
