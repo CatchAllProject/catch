@@ -42,8 +42,8 @@ async function loadSave(event){
     const gameTime = readSaveTime(reader, 0x2CED);
     howManyBadges(reader, 0x2602, 8);
     const badgesNum = badgesNames[9];
-    const seenPoke = countBit(reader, 0x25A3, 151);
-    const caughtPoke = countBit(reader, 0x25B6, 151);
+    const seenPoke = countBit(reader, 0x25B6, 151);
+    const caughtPoke = countBit(reader, 0x25A3, 151);
 
     console.log(`Nome do Treinador: ${playerName}`);
     console.log(`Nome do Rival: ${rivalName}`);
