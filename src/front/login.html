@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="login.css">
+    <title>Login // Leitor de Saves</title>
+</head>
+<body>
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+    <div class="nav_area">
+        <div class="nav_left">
+            <div class="logo">
+                <img
+                    src="../images/dex_logo.png"
+                    alt="Leitor de Saves"
+                >
+            </div>
+            <div class="nav_links">
+                <a href="index.html">
+                    Reader
+                </a>
+                <a href="">
+                    Pokédex
+                </a>
+                <a href="about.html">
+                    About
+                </a>
+            </div>
+        </div>
+        <div class="nav_search">
+            <span class="search_icon">
+                /
+            </span>
+            <input
+                type="search"
+                placeholder="Pesquisar..."
+                aria-label="Pesquisar"
+            >
+        </div>
+        <div class="nav_right">
+            <div class="nav_status">
+                <span class="status_light"></span>
+                <span>
+                    READY
+                </span>
+            </div>
+            <a
+                href="https://github.com/CatchAllProject/catch"
+                target="_blank"
+                rel="noopener noreferrer">
+                GitHub
+            </a>
+            <a href="login.html">
+                Login
+            </a>
+        </div>
+    </div>
+    <!-- =====================================================
+         LOGIN
+    ====================================================== -->
+    <main class="login_container">
+        <div class="login_header">
+            <span class="login_system">
+                USER AUTHENTICATION SYSTEM
+            </span>
+            <h1>
+                Login
+            </h1>
+            <p>
+                Acesse sua conta para continuar.
+            </p>
+        </div>
+        <section class="login_card">
+            <div class="login_card_header">
+                <span>
+                    LOGIN // 01
+                </span>
+                <span>
+                    SECURE
+                </span>
+            </div>
+            <form class="login_form">
+                <div class="input_group">
+
+                    <label for="email">
+                        E-MAIL
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="usuario@email.com"
+                        autocomplete="email"
+                    >
+                </div>
+                <div class="input_group">
+                    <label for="password">
+                        PASSWORD
+                    </label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="••••••••"
+                        autocomplete="current-password"
+                    >
+                </div>
+                <div class="login_options">
+                    <label class="remember_me">
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            name="remember">
+                        <span>
+                            Lembrar de mim
+                        </span>
+                    </label>
+                    <a href="">
+                        Esqueci minha senha
+                    </a>
+                </div>
+                <button
+                    type="submit"
+                    class="login_button">
+                    <span>
+                        ▶
+                    </span>
+                    ENTRAR
+                </button>
+            </form>
+            <div class="login_divider">
+                <span>
+                    OU
+                </span>
+            </div>
+            <div class="register_area">
+                <span>
+                    Ainda não possui uma conta?
+                </span>
+                <a href="register.html">
+                    Criar conta
+                </a>
+            </div>
+        </section>
+        <!-- =================================================
+             SYSTEM STATUS
+        ================================================== -->
+        <div class="login_system_status">
+            <div>
+                <span class="system_dot"></span>
+                AUTH SERVER
+                <strong>
+                    ONLINE
+                </strong>
+            </div>
+            <div>
+                SESSION
+                <strong>
+                    ENCRYPTED
+                </strong>
+            </div>
+            <div>
+                VERSION
+                <strong>
+                    0.1.0
+                </strong>
+            </div>
+        </div>
+    </main>
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+    <footer class="login_footer">
+        <span>
+            CATCHALL PROJECT
+        </span>
+        <span>
+            SAVE READER // USER AUTHENTICATION
+        </span>
+        <span>
+            v0.1.0
+        </span>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,743 @@
+/* =========================================================
+   MAIN
+========================================================= */
+
+.main_container {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 35px;
+
+    width: 100%;
+
+    padding-bottom: 80px;
+
+    box-sizing: border-box;
+}
+
+
+/*
+    Pequena etiqueta brutalista acima do botão.
+*/
+
+.main_container::before {
+    content: "POKÉDEX SAVE ANALYZER";
+
+    margin-top: 40px;
+
+    padding: 5px 10px;
+
+    color: var(--pixel-green);
+
+    border: 2px solid var(--pixel-green);
+
+    font-family: var(--font2);
+
+    font-size: 8px;
+
+    letter-spacing: 2px;
+
+    box-shadow: 4px 4px 0 var(--pixel-green);
+}
+
+
+/*
+    Retira o espaço original do h1,
+    pois o pseudo-elemento acima ocupa esse papel.
+*/
+
+.main_container h1 {
+    margin-top: 15px;
+}
+
+
+/* =========================================================
+   BOTÃO DE IMPORTAÇÃO
+========================================================= */
+
+#saveImportLabel {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    width: 260px;
+
+    height: 72px;
+
+    padding: 10px;
+
+    background-color: var(--btn-card);
+
+    color: var(--black);
+
+    border: 4px solid var(--black);
+
+    border-radius: 0;
+
+    font-family: var(--font2);
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    box-shadow:
+        8px 8px 0 var(--black);
+
+    transition:
+        transform 0.1s ease,
+        box-shadow 0.1s ease,
+        background-color 0.1s ease;
+}
+
+
+#saveImportLabel::before {
+    content: "▶";
+
+    margin-right: 14px;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+}
+
+
+#saveImportLabel::after {
+    content: "LOAD";
+
+    position: absolute;
+
+    right: 7px;
+    top: -13px;
+
+    padding: 3px 6px;
+
+    color: var(--white);
+
+    background-color: var(--hover);
+
+    border: 2px solid var(--black);
+
+    font-family: var(--font2);
+
+    font-size: 7px;
+
+    transform: rotate(3deg);
+}
+
+
+#saveImportLabel:hover {
+    cursor: pointer;
+
+    background-color: var(--read-save);
+
+    box-shadow:
+        4px 4px 0 var(--black);
+
+    transform: translate(4px, 4px);
+}
+
+
+#saveImportLabel:active {
+    transform: translate(8px, 8px);
+
+    box-shadow: 0 0 0 var(--black);
+}
+
+
+/* =========================================================
+   ÁREA DOS CARDS
+========================================================= */
+
+.info_container {
+    display: flex;
+
+    flex-direction: row;
+
+    align-items: flex-start;
+
+    justify-content: center;
+
+    gap: 35px;
+
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   TRAINER CARD
+========================================================= */
+
+.trainerCardTemplate {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    box-sizing: border-box;
+
+    width: 500px;
+
+    height: 368px;
+
+    gap: 143px;
+
+    border: 4px solid var(--black);
+
+    box-shadow:
+        10px 10px 0 var(--black);
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+    overflow: hidden;
+
+    background-color: var(--pixel-green);
+}
+
+
+.trainerCardTemplate:hover {
+    transform: translate(-3px, -3px);
+
+    box-shadow:
+        14px 14px 0 var(--black);
+}
+
+
+.trainerCardTemplate.show-shadow {
+    box-shadow:
+        10px 10px 0 var(--victory),
+        14px 14px 0 var(--black);
+}
+
+
+.trainerCardTemplate img {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 0;
+
+    width: 500px;
+
+    height: 368px;
+
+    object-fit: cover;
+}
+
+
+/*
+    Camada verde translúcida.
+*/
+
+.trainerCardTemplate::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background-color: rgba(155, 188, 15, 0.10);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   DADOS DO SAVE
+========================================================= */
+
+#save_data {
+    position: relative;
+
+    z-index: 3;
+
+    top: 37px;
+    left: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+#trainer_name,
+#trainer_money,
+#trainer_time {
+    font-family: var(--font2);
+
+    color: var(--pixel-dark);
+
+    font-weight: bold;
+
+    text-shadow:
+        1px 1px 0 rgba(155, 188, 15, 0.5);
+}
+
+
+#trainer_name {
+    position: relative;
+
+    top: 2px;
+    left: 0;
+
+    width: 184px;
+    height: 16px;
+}
+
+
+#trainer_money {
+    position: relative;
+
+    left: 42px;
+
+    width: 184px;
+    height: 16px;
+}
+
+
+#trainer_time {
+    width: 184px;
+
+    height: 16px;
+}
+
+
+/* =========================================================
+   BADGES
+========================================================= */
+
+#badge_block {
+    position: relative;
+
+    z-index: 3;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr 1fr 1fr;
+
+    grid-template-rows:
+        1fr 1fr;
+
+    gap: 12px;
+
+    width: 304px;
+    height: 120px;
+
+    padding: 4px;
+
+    box-sizing: border-box;
+}
+
+
+#badge_block li {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 68px;
+    height: 54px;
+
+    box-sizing: border-box;
+
+    list-style: none;
+
+    left: -5px;
+    top: 4px;
+
+    background-color: var(--hover);
+
+    border: 3px solid var(--black);
+
+    opacity: 0.4;
+
+    color: var(--btn-card);
+
+    box-shadow:
+        3px 3px 0 var(--black);
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+}
+
+
+#badge_block li::before {
+    content: "★";
+
+    color: var(--black);
+
+    font-size: 18px;
+
+    opacity: 0.6;
+}
+
+
+#badge_block li:hover {
+    opacity: 1;
+
+    transform: translate(-2px, -2px);
+}
+
+
+/* =========================================================
+   POKEDEX
+========================================================= */
+
+.pokedex_template {
+    position: relative;
+
+    box-sizing: border-box;
+
+    width: 271px;
+    height: 244px;
+
+    font-family: var(--font2);
+
+    border: 4px solid var(--black);
+
+    background-color: var(--read-save);
+
+    box-shadow:
+        10px 10px 0 var(--black);
+
+    transition:
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+
+    overflow: hidden;
+}
+
+
+.pokedex_template:hover {
+    transform: translate(-3px, -3px);
+
+    box-shadow:
+        14px 14px 0 var(--black);
+}
+
+
+.pokedex_template.show-shadow {
+    box-shadow:
+        10px 10px 0 var(--victory),
+        14px 14px 0 var(--black);
+}
+
+
+.pokedex_template img {
+    position: absolute;
+
+    z-index: 0;
+
+    inset: 0;
+
+    width: 271px;
+    height: 244px;
+
+    object-fit: cover;
+
+    background-color: var(--read-save);
+}
+
+
+/*
+    Efeito de display LCD.
+*/
+
+.pokedex_template::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            rgba(15, 56, 15, 0.08) 0px,
+            rgba(15, 56, 15, 0.08) 2px,
+            transparent 2px,
+            transparent 5px
+        );
+}
+
+
+/* =========================================================
+   DADOS DA POKEDEX
+========================================================= */
+
+#dex_data {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+#seened {
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 28px;
+
+    width: 50px;
+    height: 16px;
+
+    top: 50px;
+    left: 206px;
+
+    color: var(--pixel-dark);
+
+    font-size: 11px;
+
+    font-family: var(--font2);
+
+    font-weight: bold;
+
+    text-align: end;
+}
+
+
+#alert {
+    position: relative;
+
+    z-index: 4;
+
+    width: 100%;
+
+    margin-top: 45px;
+
+    color: var(--pixel-dark);
+
+    font-family: var(--font2);
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    line-height: normal;
+
+    text-align: center;
+
+    text-indent: 0;
+
+    transform: rotate(-2deg);
+}
+
+
+#alert::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: -1;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 125px;
+    height: 35px;
+
+    background-color: var(--pixel-light);
+
+    border: 3px solid var(--pixel-dark);
+
+    box-shadow:
+        4px 4px 0 var(--pixel-dark);
+
+    transform: translate(-50%, -50%) rotate(2deg);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .nav_area {
+        height: 95px;
+
+        padding: 0 25px;
+    }
+
+
+    .nav_area a {
+        min-width: auto;
+
+        padding: 10px 12px;
+
+        font-size: 13px;
+    }
+
+
+    .nav_area img {
+        width: 140px;
+        height: 120px;
+    }
+
+
+    .nav_area::before,
+    .nav_area::after {
+        display: none;
+    }
+
+
+    .info_container {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+}
+
+
+@media (max-width: 560px) {
+
+    .main_container {
+        gap: 30px;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    h1 {
+        width: calc(100% - 30px);
+
+        box-sizing: border-box;
+
+        font-size: 34px;
+
+        letter-spacing: -2px;
+
+        text-align: center;
+    }
+
+
+    .nav_area {
+        height: 85px;
+    }
+
+
+    .nav_area img {
+        width: 110px;
+        height: 95px;
+    }
+
+
+    .nav_area a {
+        padding: 8px;
+
+        font-size: 10px;
+
+        box-shadow: 3px 3px 0 var(--btn-card);
+    }
+
+
+    #saveImportLabel {
+        width: 220px;
+
+        height: 64px;
+
+        font-size: 11px;
+    }
+
+
+    .trainerCardTemplate {
+        width: min(500px, 100%);
+
+        height: auto;
+
+        aspect-ratio: 500 / 368;
+    }
+
+
+    .trainerCardTemplate img {
+        width: 100%;
+
+        height: 100%;
+    }
+
+
+    .pokedex_template {
+        width: 271px;
+
+        max-width: 100%;
+    }
+
+
+    #badge_block {
+        transform: scale(0.9);
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .nav_area {
+        padding: 0 10px;
+    }
+
+
+    .nav_area img {
+        width: 90px;
+        height: 80px;
+    }
+
+
+    h1 {
+        font-size: 29px;
+    }
+
+
+    #badge_block {
+        transform: scale(0.75);
+        transform-origin: center;
+    }
+
+}

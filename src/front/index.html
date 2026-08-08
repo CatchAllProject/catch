@@ -9,13 +9,65 @@
     <title>Leitor de Saves</title>
 </head>
 <body>
+        <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
+    <div class="nav_area">
+        <div class="nav_left">
+            <div class="logo">
+                <img
+                    src="../images/dex_logo.png"
+                    alt="Leitor de Saves"
+                >
+            </div>
+            <div class="nav_links">
+                <a href="index.html">
+                    Reader
+                </a>
+                <a href="">
+                    Pokédex
+                </a>
+                <a href="about.html">
+                    About
+                </a>
+            </div>
+        </div>
+        <div class="nav_search">
+            <span class="search_icon">
+                /
+            </span>
+            <input
+                type="search"
+                placeholder="Pesquisar..."
+                aria-label="Pesquisar"
+            >
+        </div>
+        <div class="nav_right">
+            <div class="nav_status">
+                <span class="status_light"></span>
+                <span>
+                    READY
+                </span>
+            </div>
+            <a
+                href="https://github.com/CatchAllProject/catch"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                GitHub
+            </a>
+            <a href="login.html">
+                Login
+            </a>
+        </div>
+    </div>
     <div class="main_container">
             <h1>Leitor de Saves</h1>
             <input type="file" id="saveInput" hidden>
             <label for="saveInput" id="saveImportLabel">Carregar Save</label>
             <div class="info_container">
                 <div id="trainerCard" class="trainerCardTemplate">
-                    <img src="images/trainer_card_template.png" alt="">
+                    <img src="../images/trainer_card_template.png" alt="">
                     <div id="save_data">
                         <label id="trainer_name">trainerName</label>
                         <label id="trainer_money">0000</label>
@@ -33,7 +85,7 @@
                     </div>
                 </div> 
                 <div class="pokedex_template">
-                    <img src="images/pokedex_template.webp" alt="">
+                    <img src="../images/pokedex_template.webp" alt="">
                     <div id="dex_data">
                         <div id="seened">
                             <label id="seen">0</label>
@@ -44,7 +96,6 @@
                 </div>
             </div>
     </div>
-    
 </body>
 </html>
-<script src="save_decoder.js"></script>
+<script src="../save_decoder.js"></script>
