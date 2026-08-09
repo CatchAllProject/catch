@@ -1,0 +1,3 @@
+z
+
+window.supabaseClient = supabaseClient;
