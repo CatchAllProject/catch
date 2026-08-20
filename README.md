@@ -78,4 +78,4 @@ Pokémon is a property of Nintendo, Game Freak, and The Pokémon Company.
 
 ## 🎮 You can see in action here:
 
-- https://catchallproject.github.io/catch/src/front/index.html
+- https://catchallproject.github.io/catch/src/front/pages/index.html
